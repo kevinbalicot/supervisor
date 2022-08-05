@@ -1,0 +1,22 @@
+{
+    "paths": {
+        "/info": {
+            "get": {
+                "description": "Get application information",
+                "operationId": "getApplicationInfo",
+                "responses": {
+                    "200": {
+                        "description": "Get application information",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

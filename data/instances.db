@@ -1,0 +1,1 @@
+{"icon":"book-spells","name":"encyclopedia","repository":"git@git.beelab.tk:beelab/encyclopedia.git","branch":"master","_id":"UEV0EEavPUTn2Zbe","createdAt":{"$$date":1655283668589},"updatedAt":{"$$date":1659715053186},"env":"{\"APP_ENV\":\"production\",\"LOCALE\":\"fr\"}","server":"krUYaXT1wHwGTYHf","dockerfile":"production.Dockerfile","port":"8080"}

@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+    web:
+        build: .
+        env_file:
+            - .env
+        ports:
+            - "${NODE_PORT}:${NODE_PORT}"
+        volumes:
+            - .:/home/app
+            - ~/.ssh:/home/user/.ssh

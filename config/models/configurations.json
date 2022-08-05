@@ -1,0 +1,66 @@
+{
+  "components": {
+    "schemas": {
+      "Configuration": {
+        "required": ["icon", "name", "domain", "instance"],
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "instance": {
+            "$ref": "#/components/schemas/Instance"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "datetime"
+          }
+        }
+      },
+
+      "ConfigurationEdition": {
+        "required": ["icon", "name", "domain", "instance"],
+        "type": "object",
+        "properties": {
+          "icon": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          }
+        }
+      },
+
+      "ConfigurationError": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "code": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}

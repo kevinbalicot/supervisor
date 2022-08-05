@@ -1,0 +1,402 @@
+{
+  "paths": {
+    "/instance/{id}": {
+      "delete": {
+        "description": "Delete Resource",
+        "tags": ["Instances"],
+        "operationId": "removeInstance",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Resource removed"
+          },
+
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceError"
+                }
+              }
+            }
+          }
+        }
+      },
+
+      "post": {
+        "description": "Edit Resource",
+        "tags": ["Instances"],
+        "operationId": "editInstance",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InstanceEdition"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Resource edited"
+          },
+
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances": {
+      "get": {
+        "description": "Find Resources",
+        "tags": ["Instances"],
+        "operationId": "findInstances",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "default": 10
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "default": 0
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchTarget",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Find Resources",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Instance"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+
+      "post": {
+        "description": "Post Resource",
+        "tags": ["Instances"],
+        "operationId": "createInstance",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InstanceEdition"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Resource created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceEdition"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/instances/count": {
+      "get": {
+        "description": "Count Resource",
+        "tags": ["Instances"],
+        "operationId": "countInstances",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Count Resources",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Instance"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/instance/{id}/deploy": {
+      "put": {
+        "description": "Deploy Resource",
+        "tags": ["Instances"],
+        "operationId": "deployInstance",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Resource deployed"
+          },
+
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/instance/{id}/status": {
+      "get": {
+        "description": "Get status for Resource",
+        "tags": ["Instances"],
+        "operationId": "getStatusInstance",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource status"
+          },
+
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/instance/{id}/stats": {
+      "get": {
+        "description": "Get stats for instance",
+        "tags": ["Instances"],
+        "operationId": "inspectInstance",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Instance stats"
+          },
+
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/instance/{id}/stop": {
+      "put": {
+        "description": "Stop instance",
+        "tags": ["Instances"],
+        "operationId": "stopInstance",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Instance stopped"
+          },
+
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/instance/{id}/start": {
+      "put": {
+        "description": "Start instance",
+        "tags": ["Instances"],
+        "operationId": "startInstance",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Instance started"
+          },
+
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/instance/{id}/restart": {
+      "put": {
+        "description": "Restart instance",
+        "tags": ["Instances"],
+        "operationId": "restartInstance",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Instance restarted"
+          },
+
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

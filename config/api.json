@@ -1,0 +1,51 @@
+{
+    "api": {
+        "openapi": "3.0.1",
+        "info": {
+            "version": "1.0.0",
+            "title": "Démo",
+            "description": "Démo API",
+            "termsOfService": "http://api_url/terms/",
+            "contact": {
+                "name": "Tamia Team",
+                "email": "hello@tamia.com",
+                "url": "https://tamia.com/"
+            },
+            "license": {
+                "name": "Apache 2.0",
+                "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+            }
+        },
+        "servers": [
+            {
+                "url": "http://localhost:8081/api"
+            }
+        ],
+        "tags": [
+            {
+                "name": "Truites",
+                "description": "Truites managing"
+            }
+        ]
+    },
+
+    "models": [
+        "/config/models/instances.json",
+        "/config/models/servers.json",
+        "/config/models/configurations.json"
+    ],
+
+    "routes": [
+        "/config/routes/instances.json",
+        "/config/routes/servers.json",
+        "/config/routes/configurations.json",
+        "/config/routes/default.json"
+    ],
+
+    "controllers": [
+        "/src/Controller/Instance",
+        "/src/Controller/Server",
+        "/src/Controller/Configuration",
+        "/src/Controller/Default"
+    ]
+}

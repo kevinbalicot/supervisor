@@ -1,0 +1,17 @@
+{
+  "name": "Supervisor",
+  "short_name": "Supervisor",
+  "short_description": "A supervisor application for Docker instance",
+  "description": "A supervisor application for Docker instance",
+  "theme_color": "#333333",
+  "background_color": "#333333",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/images/icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}
