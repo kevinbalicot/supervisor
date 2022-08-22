@@ -24,7 +24,7 @@ jobs:
         steps:
             - name: Checkout project
               uses: actions/checkout@v3
-            - name: Install and test projcet with Node v${{ matrix.node-version }}
+            - name: Install and release project
               uses: actions/setup-node@v3
               with:
                   node-version: 16
