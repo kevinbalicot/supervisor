@@ -2,10 +2,10 @@ const CRUDRepository = require("./CRUD");
 const ServerRepository = require("./Server");
 
 module.exports = class InstanceRepository extends CRUDRepository {
-    constructor(requester) {
-        super(requester, 'instances');
+    constructor() {
+        super('instances');
 
-        this.serverRepository = new ServerRepository(requester);
+        this.serverRepository = new ServerRepository();
     }
 
     async get(id) {

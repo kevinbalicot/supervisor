@@ -38,14 +38,12 @@
     "routes": [
         "/config/routes/instances.json",
         "/config/routes/servers.json",
-        "/config/routes/configurations.json",
-        "/config/routes/default.json"
+        "/config/routes/configurations.json"
     ],
 
     "controllers": [
         "/src/Controller/Instance",
         "/src/Controller/Server",
-        "/src/Controller/Configuration",
-        "/src/Controller/Default"
+        "/src/Controller/Configuration"
     ]
 }

@@ -1,8 +1,9 @@
 const HttpError = require("../Error/HttpError");
+const { Container } = require('@beelab/toolbox');
 
 module.exports = class CRUDRepository {
-    constructor(requester, collection) {
-        this.requester = requester;
+    constructor(collection) {
+        this.requester = Container.get('Requester');
         this.collection = collection;
     }
 

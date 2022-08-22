@@ -24,7 +24,7 @@ import Emoji from './modules/common/services/emoji';
 import Application from './modules/common/services/application';
 
 const app = createApp(App);
-fetch('/api/info')
+fetch('/info')
     .then(response => response.json())
     .then(config => {
         const logger = new Logger({ debug: 'dev' === config.env });
