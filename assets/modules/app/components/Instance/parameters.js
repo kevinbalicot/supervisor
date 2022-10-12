@@ -29,13 +29,11 @@ export const getForm = translate => {
         repository: {
             type: 'text',
             label: translate('repository'),
-            required: true,
             col: 'col-8 mt-2',
         },
         branch: {
             type: 'text',
             label: translate('branch'),
-            required: true,
             col: 'col-4 mt-2',
             placeholder: 'master'
         },
@@ -44,13 +42,7 @@ export const getForm = translate => {
             label: translate('server'),
             values: {},
             required: true,
-            col: 'col-12 mt-2'
-        },
-        dockerfile: {
-            type: 'text',
-            label: translate('dockerfile'),
-            required: true,
-            col: 'col-8 mt-2',
+            col: 'col-8 mt-2'
         },
         port: {
             type: 'text',
@@ -58,14 +50,33 @@ export const getForm = translate => {
             required: true,
             col: 'col-4 mt-2',
         },
+        dockerfile: {
+            type: 'text',
+            label: translate('dockerfile'),
+            col: 'col-8 mt-2',
+        },
+        image: {
+            type: 'text',
+            label: translate('image'),
+            col: 'col-4 mt-2',
+        },
+        volumes: {
+            type: 'object',
+            lazy: true,
+            label: translate('volumes'),
+            col: 'col-6 mt-2',
+        },
+        ports: {
+            type: 'object',
+            lazy: true,
+            label: translate('ports'),
+            col: 'col-6 mt-2',
+        },
         env: {
             type: 'object',
-            parameters: {
-                APP_ENV: { type: 'text', label: 'APP_ENV' },
-                LOCALE: { type: 'text', label: 'LOCALE' },
-            },
+            lazy: true,
             label: translate('env'),
             col: 'col-12 mt-2',
-        },
+        }
     };
 };

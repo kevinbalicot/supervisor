@@ -1,5 +1,5 @@
 <template>
-    <Modal id="show-instance" :title="$t('show_resource')">
+    <Modal id="show-instance" size="lg" :title="$t('show_resource')">
         <template v-if="item" #body="{ success }">
             <p v-if="error" class="alert alert-danger">{{ error }}</p>
 
@@ -28,12 +28,16 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>{{ $t('port') }}</td>
+                        <td>{{ item.port }}</td>
+                    </tr>
+                    <tr>
                         <td>{{ $t('dockerfile') }}</td>
                         <td>{{ item.dockerfile }}</td>
                     </tr>
                     <tr>
-                        <td>{{ $t('port') }}</td>
-                        <td>{{ item.port }}</td>
+                        <td>{{ $t('image') }}</td>
+                        <td>{{ item.image }}</td>
                     </tr>
                     <tr>
                         <td>{{ $t('created_at') }}</td>
@@ -54,16 +58,35 @@
                 </tbody>
             </table>
 
-            <div v-if="item.env" class="alert alert-info">
-                <table class="table">
-                    <tbody>
-                        <tr v-for="(value, key) in item.env">
-                            <td>{{ key }}</td>
-                            <td>{{ value }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h5>{{ $t('ports') }}</h5>
+            <table class="table">
+                <tbody>
+                <tr v-for="(value, key) in item.ports">
+                    <td>{{ key }}</td>
+                    <td>{{ value }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h5>{{ $t('volumes') }}</h5>
+            <table class="table">
+                <tbody>
+                <tr v-for="(value, key) in item.volumes">
+                    <td>{{ key }}</td>
+                    <td>{{ value }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h5>{{ $t('env') }}</h5>
+            <table class="table">
+                <tbody>
+                <tr v-for="(value, key) in item.env">
+                    <td>{{ key }}</td>
+                    <td>{{ value }}</td>
+                </tr>
+                </tbody>
+            </table>
         </template>
 
         <template #footer="{ close }">

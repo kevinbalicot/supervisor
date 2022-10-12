@@ -15,6 +15,7 @@ module.exports = class Deployer {
 
     async env (envs) {
         const releasePath = get('RELEASE_PATH');
+        await exec('touch -a .env.dist', releasePath);
         await exec('cp .env.dist .env', releasePath);
 
         for (const key in envs) {
@@ -39,8 +40,10 @@ module.exports = class Deployer {
         try {
             await init();
             await prepareRelease();
-            await gitClone();
-            await this.env(env ? JSON.parse(env) : {});
+            if (repository) {
+                await gitClone();
+            }
+            await this.env(env);
             await prepareShared();
             await dockerComposeUp(name, this.workdir);
             await release();

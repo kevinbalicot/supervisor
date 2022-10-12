@@ -1,1 +1,6 @@
-{"icon":"book-spells","name":"encyclopedia","domain":"encyclopedia.beaujeuteam.fr","instance":"UEV0EEavPUTn2Zbe","_id":"FNqo2D7CiG3M4uHZ","createdAt":{"$$date":1659711197182},"updatedAt":{"$$date":1659715068248}}
+{"icon":"analytics","name":"analytics","domain":"analytics.beaujeuteam.fr","instance":"u2CIGyFtmsdPMsXP","_id":"IHaaIlSHguZ4UK1E","createdAt":{"$$date":1666792229276},"updatedAt":{"$$date":1666792229276}}
+{"icon":"pencil","name":"boutdecode","domain":"boutdecode.fr","instance":"vieaCcPgGIjZMtCY","_id":"JOvx89JdfggDp7pn","createdAt":{"$$date":1666623436208},"updatedAt":{"$$date":1666623436208}}
+{"icon":"medal","name":"tuveuxunemedaille","domain":"tuveuxunemedaille.fr","instance":"ZidA9XerDPmtS34u","_id":"MYiM9iL656Gd7AaM","createdAt":{"$$date":1666691712440},"updatedAt":{"$$date":1666691712440}}
+{"icon":"cat","name":"cataas","domain":"cataas.com","instance":"ZZIZuTqdy5OIWoLx","_id":"TbcIKJ47KPnFy7Nn","createdAt":{"$$date":1665497378346},"updatedAt":{"$$date":1665497378346}}
+{"icon":"cloud","name":"nextcloud","domain":"cloud.beaujeuteam.fr","instance":"lLMA3TgShzSyuvBx","_id":"ZPKSZZxlC7Ulne5d","createdAt":{"$$date":1667903606229},"updatedAt":{"$$date":1667903606229}}
+{"icon":"envelope","name":"mailer","domain":"mailer.beaujeuteam.fr","instance":"Scd8I96igdBce64P","_id":"wqwu9qsKiKVuqPRR","createdAt":{"$$date":1667816741806},"updatedAt":{"$$date":1667816741806}}

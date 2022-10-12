@@ -9,9 +9,6 @@
 
 <script setup>
 import Badge from "../../../ui/components/elements/Badge.vue";
-import { inject, ref, onMounted } from "vue";
-
-import { getUrl } from "./parameters";
 
 defineProps({
     instance: Object,

@@ -8,7 +8,7 @@
 
         <div class="row">
             <div v-for="instance in instances" class="col-xxl-4 col-md-6">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm mb-4">
                     <header class="card-header d-flex bg-white align-items-center justify-content-between p-lg-4 p-md-3">
                         <span><Icon :icon="instance.icon"/> {{ instance.name }}</span>
                         <Status :instance="instance"/>

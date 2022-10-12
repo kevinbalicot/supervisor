@@ -1,5 +1,5 @@
 <template>
-    <Modal :id="modalId('edit')" size="md" :title="modalTitle">
+    <Modal :id="modalId('edit')" size="lg" :title="modalTitle">
         <template #body="{ success }">
             <p v-if="error" class="alert alert-danger">{{ error }}</p>
             <Form ref="form" id="edit-form" :model="item" :parameters="parameters" @submit="formSubmitted($event, success)"/>
@@ -52,7 +52,6 @@ onMounted(() => {
 const formSubmitted = (data, success) => {
     error.value = null;
     loading.value = true;
-    data.env = JSON.stringify(data.env);
 
     repository.post(data._id ? getUrl(data._id) : createUrl(), data, { 'Content-Type': 'application/json' })
         .then(() => success())

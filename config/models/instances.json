@@ -1,90 +1,116 @@
 {
-  "components": {
-    "schemas": {
-      "Instance": {
-        "required": ["icon", "name", "repository", "branch", "server", "dockerfile", "port"],
-        "type": "object",
-        "properties": {
-          "_id": {
-            "type": "string"
-          },
-          "icon": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "repository": {
-            "type": "string"
-          },
-          "branch": {
-            "type": "string"
-          },
-          "server": {
-            "$ref": "#/components/schemas/Server"
-          },
-          "dockerfile": {
-            "type": "string"
-          },
-          "port": {
-            "type": "string"
-          },
-          "env": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "datetime"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "datetime"
-          }
+    "components": {
+        "schemas": {
+            "Instance": {
+                "required": [
+                    "icon",
+                    "name",
+                    "server",
+                    "port"
+                ],
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string"
+                    },
+                    "icon": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "repository": {
+                        "type": "string"
+                    },
+                    "branch": {
+                        "type": "string"
+                    },
+                    "server": {
+                        "$ref": "#/components/schemas/Server"
+                    },
+                    "dockerfile": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    },
+                    "volumes": {
+                        "type": "object"
+                    },
+                    "ports": {
+                        "type": "object"
+                    },
+                    "env": {
+                        "type": "object"
+                    },
+                    "port": {
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "datetime"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "datetime"
+                    }
+                }
+            },
+            "InstanceEdition": {
+                "required": [
+                    "icon",
+                    "name",
+                    "server",
+                    "port"
+                ],
+                "type": "object",
+                "properties": {
+                    "icon": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "repository": {
+                        "type": "string"
+                    },
+                    "branch": {
+                        "type": "string"
+                    },
+                    "server": {
+                        "type": "string"
+                    },
+                    "dockerfile": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    },
+                    "volumes": {
+                        "type": "object"
+                    },
+                    "ports": {
+                        "type": "object"
+                    },
+                    "env": {
+                        "type": "object"
+                    },
+                    "port": {
+                        "type": "string"
+                    }
+                }
+            },
+            "InstanceError": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "code": {
+                        "type": "integer"
+                    }
+                }
+            }
         }
-      },
-
-      "InstanceEdition": {
-        "required": ["icon", "name", "repository", "branch", "server", "dockerfile", "port"],
-        "type": "object",
-        "properties": {
-          "icon": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "repository": {
-            "type": "string"
-          },
-          "branch": {
-            "type": "string"
-          },
-          "server": {
-            "type": "string"
-          },
-          "dockerfile": {
-            "type": "string"
-          },
-          "port": {
-            "type": "string"
-          },
-          "env": {
-            "type": "string"
-          }
-        }
-      },
-
-      "InstanceError": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string"
-          },
-          "code": {
-            "type": "integer"
-          }
-        }
-      }
     }
-  }
 }

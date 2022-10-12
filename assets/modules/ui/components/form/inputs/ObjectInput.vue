@@ -3,12 +3,20 @@
         {{ settings.label }}
     </label>
 
-    <div v-if="availableParameters.length !== parameters.length" class="input-group mb-3">
+    <div v-if="!settings.lazy && availableParameters.length !== parameters.length" class="input-group mb-3">
         <select class="form-select" ref="select">
             <option v-for="parameterName in availableParameters" :value="parameterName">
                 {{ settings.parameters[parameterName].label || parameterName }}
             </option>
         </select>
+
+        <Button level="secondary" outline @click="onAddedParameter">
+            {{ $t('add') }}
+        </Button>
+    </div>
+
+    <div v-if="settings.lazy" class="input-group mb-3">
+        <input type="text" name="parameter" class="form-control" ref="select">
 
         <Button level="secondary" outline @click="onAddedParameter">
             {{ $t('add') }}
@@ -82,7 +90,7 @@
                     <td v-if="!settings.parameters[parameterName].required">
                         <Button
                             level="danger"
-                            @click="onDeleteParameter($event, name)">
+                            @click="onDeleteParameter($event, parameterName)">
                             <Icon icon="trash"></Icon>
                         </Button>
                     </td>
@@ -135,6 +143,16 @@ export default {
     },
 
     mounted() {
+        if (this.settings.lazy) {
+            if (!this.settings.parameters) {
+                this.settings.parameters = {};
+            }
+
+            for (let key in this.value) {
+                this.settings.parameters[key] = { type: 'text', label: key };
+            }
+        }
+
         for (let name in this.settings.parameters) {
             if (!this.availableParameters.includes(name)) {
                 this.availableParameters.push(name);
@@ -184,14 +202,33 @@ export default {
             }
         },
 
+        addLazyParameter(selectedParameter) {
+            if (selectedParameter && !this.settings.parameters[selectedParameter]) {
+                this.settings.parameters[selectedParameter] = { type: 'text', label: selectedParameter };
+            }
+
+            if (selectedParameter && !this.parameters.includes(selectedParameter)) {
+                this.parameters.push(selectedParameter);
+            }
+        },
+
         onAddedParameter() {
-            this.addParameter(this.$refs.select.value);
+            if (this.settings.lazy) {
+                this.addLazyParameter(this.$refs.select.value)
+            } else {
+                this.addParameter(this.$refs.select.value);
+            }
         },
 
         onDeleteParameter(event, name) {
+            if (this.settings.lazy) {
+                delete this.settings.parameters[name];
+                delete this._value[name];
+            }
+
             this.parameters.splice(this.parameters.indexOf(name), 1);
 
-            this.onInputChanged(event);
+            setTimeout(() => this.onInputChanged(event));
         },
     }
 }
