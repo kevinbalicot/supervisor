@@ -16,6 +16,12 @@ class DockerComposeGenerator {
                 ports: [
                     `${port}:8080`
                 ],
+                restart_policy: {
+                    condition: 'on-failure',
+                    delay: '5s',
+                    max_attempts: 3,
+                    window: '10s',
+                },
                 volumes: [
                     '~/.ssh:/home/user/.ssh',
                     `~/storage/${name}:/home/app/data`
